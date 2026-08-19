@@ -10,6 +10,7 @@ import { SafetyMap } from './components/SafetyMap';
 import { CommunityReports } from './components/CommunityReports';
 import { EmergencyHistory } from './components/EmergencyHistory';
 import { CloudRunNotice } from './components/CloudRunNotice';
+import { AISafetyAnalyzer } from './components/AISafetyAnalyzer';
 import type { TrustedContact, SafetyReport, CheckInState, EmergencyLogEntry } from './types';
 
 export function App() {
@@ -114,11 +115,16 @@ export function App() {
       <main className="max-w-7xl mx-auto px-4 pt-6 space-y-6">
         {activeTab === 'map' && (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1 space-y-6">
               <SOSButton
                 onTrigger={handleTriggerSOS}
                 location={location}
                 contacts={contacts}
+              />
+
+              <AISafetyAnalyzer
+                location={location}
+                reports={reports}
               />
             </div>
             <div className="lg:col-span-2">

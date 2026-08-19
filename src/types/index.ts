@@ -58,3 +58,14 @@ export interface EmergencyLogEntry {
   details: string;
   contactsNotified: string[];
 }
+
+export type RiskLevel = 'LOW' | 'MEDIUM' | 'HIGH';
+
+export interface AISafetyAnalysis {
+  riskLevel: RiskLevel;
+  riskScore: number;
+  summary: string;
+  riskFactors: string[];
+  recommendation: string;
+  analyzedAt: number;
+}
